@@ -1,12 +1,27 @@
 import { Link } from 'react-router-dom';
-import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <Link to="/">Inicio</Link>
-      <Link to="/tareas">Ver Tareas</Link>
-      <Link to="/crear">Crear Tarea</Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">App de Tareas</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Inicio</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/tareas">Ver Tareas</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/crear">Crear Tarea</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };

@@ -1,14 +1,16 @@
 import { useParams } from 'react-router-dom';
-import './TareaDetallePage.css';
 
 const TareaDetallePage = () => {
-  // Agarré el id de la URL
   const { id } = useParams();
 
   return (
-    <div className="detalle-container">
-      <h2>Detalles de la Tarea</h2>
-      <p>ID de la Tarea: **{id}**</p>
+    <div className="container mt-5">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">Detalles de la Tarea</h5>
+          <p className="card-text">ID de la Tarea: <strong>{id}</strong></p>
+        </div>
+      </div>
     </div>
   );
 };

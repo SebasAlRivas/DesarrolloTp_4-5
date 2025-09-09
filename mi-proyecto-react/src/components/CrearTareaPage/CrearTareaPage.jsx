@@ -1,8 +1,6 @@
 import { useForm } from 'react-hook-form';
-import './CrearTareaPage.css';
 
 const CrearTareaPage = () => {
-  // Con esto el formulario es super facil de manejar
   const {
     register,
     handleSubmit,
@@ -15,20 +13,20 @@ const CrearTareaPage = () => {
   };
 
   return (
-    <div className="crear-tarea-container">
+    <div className="container mt-4">
       <h2>Crear Nueva Tarea</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <label htmlFor="titulo">Título de la Tarea:</label>
+        <div className="mb-3">
+          <label htmlFor="titulo" className="form-label">Título de la Tarea:</label>
           <input
             id="titulo"
             type="text"
+            className="form-control"
             {...register('titulo', { required: 'Este campo es obligatorio.' })}
           />
-          {/* El error se muestra acá */}
-          {errors.titulo && <p className="error-message">{errors.titulo.message}</p>}
+          {errors.titulo && <div className="alert alert-danger mt-2">{errors.titulo.message}</div>}
         </div>
-        <button type="submit" className="submit-button">Crear Tarea</button>
+        <button type="submit" className="btn btn-primary">Crear Tarea</button>
       </form>
     </div>
   );

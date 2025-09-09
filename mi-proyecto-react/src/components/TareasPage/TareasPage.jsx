@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './TareasPage.css';
 
 const TareasPage = () => {
   const [tareas, setTareas] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Acá hago un timeout para simular que carga de la base de datos
     const timer = setTimeout(() => {
       const datosSimulados = [
         { id: '1', titulo: 'Comprar víveres' },
@@ -18,26 +16,34 @@ const TareasPage = () => {
       setLoading(false);
     }, 1000);
 
-    return () => clearTimeout(timer); // Para que no explote
-  }, []); //para que solo se ejecute una vez
+    return () => clearTimeout(timer);
+  }, []);
 
   if (loading) {
-    return <div className="loading-text">Cargando tareas...</div>;
+    return (
+      <div className="d-flex justify-content-center mt-5">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Cargando...</span>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="tareas-container">
+    <div className="container mt-4">
       <h2>Lista de Tareas</h2>
       {tareas.length > 0 ? (
-        <ul className="tareas-list">
+        <ul className="list-group">
           {tareas.map((tarea) => (
-            <li key={tarea.id} className="tarea-item">
+            <li key={tarea.id} className="list-group-item">
               <Link to={`/tarea/${tarea.id}`}>{tarea.titulo}</Link>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No hay tareas disponibles.</p>
+        <div className="alert alert-info mt-3" role="alert">
+          No hay tareas disponibles.
+        </div>
       )}
     </div>
   );
