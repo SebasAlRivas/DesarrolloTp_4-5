@@ -1,0 +1,15 @@
+.tareas-container {
+  padding: 20px;
+}
+.loading-text {
+  font-style: italic;
+}
+.tareas-list {
+  list-style-type: none;
+  padding: 0;
+}
+.tarea-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
