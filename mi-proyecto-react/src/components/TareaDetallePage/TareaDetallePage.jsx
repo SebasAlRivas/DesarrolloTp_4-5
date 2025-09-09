@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import './TareaDetallePage.css';
 
 const TareaDetallePage = () => {
+  // Agarré el id de la URL
   const { id } = useParams();
 
   return (

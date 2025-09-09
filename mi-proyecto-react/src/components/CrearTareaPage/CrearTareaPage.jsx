@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import './CrearTareaPage.css';
 
 const CrearTareaPage = () => {
+  // Con esto el formulario es super facil de manejar
   const {
     register,
     handleSubmit,
@@ -24,6 +25,7 @@ const CrearTareaPage = () => {
             type="text"
             {...register('titulo', { required: 'Este campo es obligatorio.' })}
           />
+          {/* El error se muestra acá */}
           {errors.titulo && <p className="error-message">{errors.titulo.message}</p>}
         </div>
         <button type="submit" className="submit-button">Crear Tarea</button>

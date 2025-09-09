@@ -7,6 +7,7 @@ const TareasPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Acá hago un timeout para simular que carga de la base de datos
     const timer = setTimeout(() => {
       const datosSimulados = [
         { id: '1', titulo: 'Comprar víveres' },
@@ -17,8 +18,8 @@ const TareasPage = () => {
       setLoading(false);
     }, 1000);
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer); // Para que no explote
+  }, []); //para que solo se ejecute una vez
 
   if (loading) {
     return <div className="loading-text">Cargando tareas...</div>;

@@ -8,8 +8,9 @@ import Navbar from './components/Navbar/Navbar';
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar /> {/* la navbar siempre va a estar */}
       <div style={{ padding: '20px' }}>
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/tareas" element={<TareasPage />} />
